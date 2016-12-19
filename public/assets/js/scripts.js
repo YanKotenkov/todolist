@@ -1,13 +1,20 @@
+function addTask(taskId, i) {
+    $('#taskList').append("<li data-id=" + i + " class='well well-small'>" + localStorage.getItem(taskId) +
+        " <button data-id=" + i + " class='taskRemove btn btn-danger'>Удалить</button>" +
+        "</li>");
+}
+
 $(function() {
     var i = 0;
     for (i = 0; i < localStorage.length; i++) {
         var taskId = "task-" + i;
-        $('#taskList').append("<li id='" + taskId + "' class='well well-small'>" + localStorage.getItem(taskId) + "</li>");
+        addTask(taskId, i);
+        console.log("taskId = ", taskId, "storage item = ", localStorage.getItem(taskId));
     }
 
     $('#clear').click(function () {
         localStorage.clear();
-        location.reload();
+        $('div#taskList').empty();
     });
 
     $('#taskInput').keyup(function(event){
@@ -15,7 +22,7 @@ $(function() {
             var taskId = "task-" + i;
             var taskMessage = $('#taskInput').val();
             localStorage.setItem(taskId, taskMessage);
-            $('#taskList').append("<li id='" + taskId + "' class='well well-small'>" + localStorage.getItem(taskId) + "</li>");
+            addTask(taskId, i);
             var task = $('#' + taskId);
             task.css('display', 'none');
             task.slideDown('fast');
@@ -25,12 +32,11 @@ $(function() {
         return false;
     });
 
-    $('#taskList').on('click', 'li', function (event) {
-        self = $(this);
-        taskId = self.attr('id');
-        localStorage.removeItem(taskId);
-        self.slideUp('fast', function () {
-            self.remove();
+    $(document).on('click', '.taskRemove', function (event) {
+        taskRemove = 'task-' + $(this).data("id");
+        localStorage.removeItem(taskRemove);
+        $(this).slideUp('fast', function () {
+            $(this).parent().remove();
         })
     });
 });
