@@ -10,19 +10,36 @@ li {
     list-style-type: none; /* Убираем маркеры */
 }
 
-button.taskRemove {
+
+a.task-remove {
     float:right;
-    position: relative;
-    bottom: 6px;
-    width: 17.5%;
+    position: static;
 }
 
-footer {
+a.task-complete {
+    float: right;
+    position: static;
+}
+
+div.clear {
     position: relative;
     bottom: 0;
     width: 100%;
     height: 10vh;
+    right: 15px;
     text-align: center;
+}
+
+div.panel {
+    border: 2px;
+}
+
+button#clear {
+    float: right;
+}
+
+button#clear-completed {
+    float: right;
 }
 
 ::-webkit-input-placeholder {
