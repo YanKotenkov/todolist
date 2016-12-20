@@ -10,6 +10,17 @@ li {
     list-style-type: none; /* Убираем маркеры */
 }
 
+.glyphicon-ok.done {
+    color:green;
+}
+
+li.done {
+    text-decoration:line-through;
+}
+
+.glyphicon-remove {
+    color:red;
+}
 
 a.task-remove {
     float:right;
@@ -30,9 +41,6 @@ div.clear {
     text-align: center;
 }
 
-div.panel {
-    border: 2px;
-}
 
 button#clear {
     float: right;

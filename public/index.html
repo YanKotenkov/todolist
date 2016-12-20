@@ -8,6 +8,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -17,16 +18,16 @@
 
             <input type="text" id="task_input" class="form-control" placeholder="Input task">
 
-            <div class=class="panel-default">
+            <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3>Task list</h3>
+                    <h3 class="panel-title">Task list</h3>
                 </div>
                 <div class="panel-body">
-                    <ul id="task_list"></ul>
+                    <ul id="task_list" class = "list-group"></ul>
                 </div>
-                <div class="clear">
-                    <button class="btn btn-danger btn-lg" id="clear">Clear tasks</button>
-                </div>
+            </div>
+            <div class="clear">
+                <button class="btn btn-danger btn-lg" id="clear">Clear tasks</button>
             </div>
         </div>
     </div>
